@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Metric Converter</ion-title>
+    <div style="padding-left: 20px; font-size: 12px; color: rgb(236, 236, 236)">
+      By: Zefanya Kambey
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h3>Konversi Massa (Mass)</h3>
+
+  <ion-item>
+    <ion-label position="floating">Dari</ion-label>
+    <ion-select [(ngModel)]="fromUnit">
+      <ion-select-option value="kilogram">Kilogram</ion-select-option>
+      <ion-select-option value="milligram">Milligram</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Masukkan Nilai</ion-label>
+    <ion-input [(ngModel)]="inputValue" type="number"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Ke</ion-label>
+    <ion-select [(ngModel)]="toUnit">
+      <ion-select-option value="kilogram">Kilogram</ion-select-option>
+      <ion-select-option value="milligram">Milligram</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-button shape="round" (click)="convert()">Convert</ion-button>
+
+  <ion-item *ngIf="result !== null">
+    <ion-label> Result: {{ result }} {{ toUnit }} </ion-label>
+  </ion-item>
+</ion-content>
